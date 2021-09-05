@@ -11,7 +11,10 @@ class Author extends Model
 
     protected $fillable = ['name', 'age', 'nationality'];
 
-
+    public function getDetail()
+    {
+        return 'ID'. $this->id. ':'.$this->title. ' 著者:' . optional($this->author)->name;
+    }
 public function relate(Request $request) //追記
     {
         $items = Author::all();
@@ -21,7 +24,9 @@ public function relate(Request $request) //追記
         return $this->hasOne('App\Models\Book');
     }
     public function books(){
-        return $this->hasMary('App\Models\Book');
+        return $this->hasMany('App\Models\Book');
     }
 }
+
+
 
