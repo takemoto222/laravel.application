@@ -9,7 +9,7 @@ use App\Models\Book;
 class BookController extends Controller
 {
     public function index(Request $request){
-        $items = Book::all();
+        $items = Book::with('author')->get();
         return view('book.index', ['items' =>$items]);
     }
     public function add(Request $request){

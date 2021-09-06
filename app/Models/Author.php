@@ -13,7 +13,8 @@ class Author extends Model
 
     public function getDetail()
     {
-        return 'ID'. $this->id. ':'.$this->title. ' 著者:' . optional($this->author)->name;
+        $txt = 'ID:'.$this->id . ' ' . $this->name . '(' . $this->age .  '才'.') '.$this->nationality;
+        return $txt;
     }
 public function relate(Request $request) //追記
     {
