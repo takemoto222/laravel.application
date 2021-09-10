@@ -9,7 +9,7 @@ class Author extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','age', 'naitonality'];
+    protected $fillable = ['name', 'age', 'nationality'];
 
     public static $rules = array(
         'name' => 'required',
@@ -25,6 +25,6 @@ class Author extends Model
         return $this->hasOne('App\Models\Book');
     }
     public function books(){
-        return $this->hasmany('App\Models\Book');
+        return $this->hasMany('App\Models\Book');
     }
 }
