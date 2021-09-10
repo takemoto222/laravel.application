@@ -9,25 +9,22 @@ class Author extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'age', 'nationality'];
+    protected $fillable = ['name'.'age', 'naitonality'];
 
+    public static $rules = array(
+        'name'=>'required',
+        'age'=>'integerlmin:0lmax:150',
+        'nationality'=>'required'
+    );
     public function getDetail()
     {
-        $txt = 'ID:'.$this->id . ' ' . $this->name . '(' . $this->age .  '才'.') '.$this->nationality;
+        $txt = 'ID:'.$this->id . '' .$this->name . '(' . $this->nationality;
         return $txt;
-    }
-public function relate(Request $request) //追記
-    {
-        $items = Author::all();
-        return view('author.index', ['items' => $items]);
     }
     public function book(){
         return $this->hasOne('App\Models\Book');
     }
     public function books(){
-        return $this->hasMany('App\Models\Book');
+        return $this->hasmany('App\Models\Book');
     }
 }
-
-
-
