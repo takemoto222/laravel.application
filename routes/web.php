@@ -11,6 +11,6 @@ Route::get('/session', [SessionController::class, 'getSes']);
 Route::post('/session', [SessionController::class, 'postSes']);
 
 
-Route::get('/softdelete', function () {
+Route::get('/softdelete', function(){
     Person::find(1)->delete();
 });

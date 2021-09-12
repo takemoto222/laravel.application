@@ -12,7 +12,7 @@ class CreatePeopleTable extends Migration
      *
      * @return void
      */
-    public function up()
+public function up()
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
@@ -23,6 +23,7 @@ class CreatePeopleTable extends Migration
             $table->softDeletes();
         });
     }
+
 
     /**
      * Reverse the migrations.
