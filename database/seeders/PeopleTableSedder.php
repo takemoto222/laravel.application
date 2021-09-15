@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\Person;
 
 class PeopleTableSedder extends Seeder
 {
@@ -13,15 +15,6 @@ class PeopleTableSedder extends Seeder
      */
     public function run()
     {
-        $param = [
-            'name' => 'tony',
-            'age' => 30,
-        ];
-        DB::table('people')->insert($param);
-        $param = [
-            'name' => 'jiny',
-            'age' => 32,
-        ];
-        DB::table('people')->insert($param);
+        Person::factory()->count(2)->create();
     }
 }
