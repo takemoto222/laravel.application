@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class CreatePeopleTable extends Migration
 {
     /**
@@ -12,7 +13,7 @@ class CreatePeopleTable extends Migration
      *
      * @return void
      */
-public function up()
+    public function up()
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();

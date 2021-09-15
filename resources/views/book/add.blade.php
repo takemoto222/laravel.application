@@ -1,9 +1,12 @@
 @extends('layouts.default')
 <style>
-   th {
+  th {
       background-color: #289ADC;
       color: white;
       padding: 5px 40px;
+    }
+    tr:nth-child(odd) td{
+      background-color: #FFFFFF;
     }
     td {
       padding: 25px 40px;
@@ -17,7 +20,7 @@
       color: white;
     }
 </style>
-@section('title', 'book.add.blade.php')
+@section('title', 'add.blade.php')
 
 @section('content')
 @if (count($errors) > 0)
@@ -29,18 +32,39 @@
   @endforeach
 </ul>
 @endif
-<form action="/book/add" method="post">
+<form action="/add" method="post">
   <table>
     @csrf
     <tr>
-      <th>author_id:</th>
-      <td><input type="number" name="author_id"></td>
+      <th>
+        name
+      </th>
+      <td>
+        <input type="text" name="name">
+      </td>
     </tr>
     <tr>
-      <th>title:</th>
-      <td><input type="text" name="title"></td>
+      <th>
+        age
+      </th>
+      <td>
+        <input type="text" name="age">
+      </td>
     </tr>
+    <tr>
+      <th>
+        nationality
+      </th>
+      <td>
+        <input type="text" name="nationality">
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <button>送信</button>
+      </td>
   </table>
-  <button>送信</button>
 </form>
 @endsection
+
