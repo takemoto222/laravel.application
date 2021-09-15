@@ -18,3 +18,18 @@ Route::post('/delete', [AuthorController::class, 'remove']);
 Route::get('/softdelete', function () {
     Person::find(1)->delete();
 });
+
+Route::get('softdelete/get', function(){
+    $person = Person::onlyTrashed()->get();
+    dd($person);
+});
+
+Route::get('softdelete/store', function(){
+    $result = Person::onlyTrashed()->restore();
+    echo $result;
+});
+
+Route::get('softdelete/adsolute', function(){
+    $result = Person::onlyTrashed()->forceDelete();
+    echo $result;
+});
